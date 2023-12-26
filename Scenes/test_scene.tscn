@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxh5nmee2dv0n"]
+[gd_scene load_steps=4 format=3 uid="uid://dhg2pv8t0l5d4"]
 
 [ext_resource type="Script" path="res://Scenes/TimeManager.gd" id="1_1r1ds"]
 [ext_resource type="FontFile" uid="uid://dccu33twv0ks8" path="res://Assets/Silver.ttf" id="2_ctguj"]
