@@ -18,23 +18,38 @@ var armLeftIntegrity: int = 100
 var armRightIntegrity: int = 100
 
 # arm slots
-var armLeftType: String = "forestry" # temp: probably want actual arm types as a class
-var armRightType: String = "generic"
-var armLeftHolding: String = "" # temp: probably also want the same for held items
-var armRightHolding: String = ""
+var armLeftType: int = 101 # forestry claw
+var armRightType: int = 100 # manipulator arm
+var armLeftHolding: int = -1 # nothing held
+var armRightHolding: int = -1
 
 # module slots
-var modules: Array[String] = ["horn", "", ""] # once again i want a class for this
+var modules: Array[int] = [200, -1, -1] # horn and two empties
 
 # inventory
 const maxWeight: int = 2000 # kg, probably
 const maxVolume: int = 100 # liters, probably
-var inventory : Inventory = Inventory.new().addItemToInventoryByID("medkit", 1)
+var inventory : Inventory = Inventory.new().addItemToInventoryByID(0, 1)
 
-# roof rack special case inventory (oh god it's starting)
+# roof rack special casing
+var roofRackEquipped : bool = false # seems important
 var roofRackInventory : Inventory = Inventory.new() # probably have a seperate panel?
 
 # todo: derived stats, fuel, engine type?
+
+# derived stats
+var speed: int:
+	get:
+		return round((legIntegrity / 5) * internalsModifier) # placeholder speed calc
+var visibility: int = 5 # temp value
+var internalsModifier: int:
+	get:
+		if internalsIntegrity > 49:
+			return round(internalsIntegrity - 50) # from +0% to +50% above 50% integ
+		else:
+			return round((50 - internalsIntegrity) / 2) # from -0% to -25% below 50% integ
+
+# 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,3 +59,6 @@ func _ready():
 func _process(delta):
 	pass
 
+# wip
+func updateModuleBonuses():
+	return

@@ -14,12 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-func getItem() -> Item:
-	return item
-
-func getQuantity() -> int:
-	return quantity
-
-func setQuantity(qty: int):
-	quantity = qty
